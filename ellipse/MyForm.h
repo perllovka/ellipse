@@ -29,7 +29,7 @@ namespace Ell {
 
 	private: System::Windows::Forms::TextBox^ FirstCoordinate;
 
-	private: System::Windows::Forms::TextBox^ SecondCoordinate;
+	private: System::Windows::Forms::TextBox^ SecCoordinate;
 
 	private: System::Windows::Forms::Label^ X0;
 
@@ -54,7 +54,7 @@ namespace Ell {
 
 	protected:
 
-		static int CPaint = 0;
+		static int cPaintFormFlag = 0;
 
 
 	protected:
@@ -79,7 +79,7 @@ namespace Ell {
 			this->PaintBox = (gcnew System::Windows::Forms::PictureBox());
 			this->ClearButton = (gcnew System::Windows::Forms::Button());
 			this->FirstCoordinate = (gcnew System::Windows::Forms::TextBox());
-			this->SecondCoordinate = (gcnew System::Windows::Forms::TextBox());
+			this->SecCoordinate = (gcnew System::Windows::Forms::TextBox());
 			this->WidthTB = (gcnew System::Windows::Forms::TextBox());
 			this->X0 = (gcnew System::Windows::Forms::Label());
 			this->Y0 = (gcnew System::Windows::Forms::Label());
@@ -108,11 +108,11 @@ namespace Ell {
 			this->PaintBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->PaintBox->BackColor = System::Drawing::Color::Moccasin;
+			this->PaintBox->BackColor = System::Drawing::Color::BlanchedAlmond;
 			this->PaintBox->Location = System::Drawing::Point(133, 13);
 			this->PaintBox->Margin = System::Windows::Forms::Padding(2);
 			this->PaintBox->Name = L"PaintBox";
-			this->PaintBox->Size = System::Drawing::Size(429, 333);
+			this->PaintBox->Size = System::Drawing::Size(464, 303);
 			this->PaintBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->PaintBox->TabIndex = 1;
 			this->PaintBox->TabStop = false;
@@ -134,7 +134,7 @@ namespace Ell {
 			// FirstCoordinate
 			// 
 			this->FirstCoordinate->AcceptsReturn = true;
-			this->FirstCoordinate->Location = System::Drawing::Point(20, 128);
+			this->FirstCoordinate->Location = System::Drawing::Point(20, 116);
 			this->FirstCoordinate->Margin = System::Windows::Forms::Padding(2);
 			this->FirstCoordinate->Name = L"FirstCoordinate";
 			this->FirstCoordinate->Size = System::Drawing::Size(81, 20);
@@ -142,19 +142,19 @@ namespace Ell {
 			this->FirstCoordinate->Text = L"100";
 			this->FirstCoordinate->TextChanged += gcnew System::EventHandler(this, &CForm::FirstCoordinate_TextChanged);
 			// 
-			// SecondCoordinate
+			// SecCoordinate
 			// 
-			this->SecondCoordinate->Location = System::Drawing::Point(20, 196);
-			this->SecondCoordinate->Margin = System::Windows::Forms::Padding(2);
-			this->SecondCoordinate->Name = L"SecondCoordinate";
-			this->SecondCoordinate->Size = System::Drawing::Size(81, 20);
-			this->SecondCoordinate->TabIndex = 4;
-			this->SecondCoordinate->Text = L"100";
-			this->SecondCoordinate->TextChanged += gcnew System::EventHandler(this, &CForm::SecondCoordinate_TextChanged);
+			this->SecCoordinate->Location = System::Drawing::Point(20, 172);
+			this->SecCoordinate->Margin = System::Windows::Forms::Padding(2);
+			this->SecCoordinate->Name = L"SecCoordinate";
+			this->SecCoordinate->Size = System::Drawing::Size(81, 20);
+			this->SecCoordinate->TabIndex = 4;
+			this->SecCoordinate->Text = L"100";
+			this->SecCoordinate->TextChanged += gcnew System::EventHandler(this, &CForm::SecCoordinate_TextChanged);
 			// 
 			// WidthTB
 			// 
-			this->WidthTB->Location = System::Drawing::Point(20, 266);
+			this->WidthTB->Location = System::Drawing::Point(20, 228);
 			this->WidthTB->Margin = System::Windows::Forms::Padding(2);
 			this->WidthTB->Name = L"WidthTB";
 			this->WidthTB->Size = System::Drawing::Size(81, 20);
@@ -165,7 +165,7 @@ namespace Ell {
 			// X0
 			// 
 			this->X0->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->X0->Location = System::Drawing::Point(25, 91);
+			this->X0->Location = System::Drawing::Point(23, 84);
 			this->X0->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->X0->Name = L"X0";
 			this->X0->Size = System::Drawing::Size(43, 23);
@@ -176,7 +176,7 @@ namespace Ell {
 			// Y0
 			// 
 			this->Y0->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->Y0->Location = System::Drawing::Point(25, 164);
+			this->Y0->Location = System::Drawing::Point(23, 145);
 			this->Y0->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Y0->Name = L"Y0";
 			this->Y0->Size = System::Drawing::Size(43, 20);
@@ -188,7 +188,7 @@ namespace Ell {
 			// Wl
 			// 
 			this->Wl->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->Wl->Location = System::Drawing::Point(25, 236);
+			this->Wl->Location = System::Drawing::Point(23, 200);
 			this->Wl->Margin = System::Windows::Forms::Padding(0);
 			this->Wl->Name = L"Wl";
 			this->Wl->Size = System::Drawing::Size(38, 20);
@@ -199,7 +199,7 @@ namespace Ell {
 			// ExitButton
 			// 
 			this->ExitButton->BackColor = System::Drawing::Color::DarkGray;
-			this->ExitButton->Location = System::Drawing::Point(20, 399);
+			this->ExitButton->Location = System::Drawing::Point(20, 322);
 			this->ExitButton->Margin = System::Windows::Forms::Padding(2);
 			this->ExitButton->Name = L"ExitButton";
 			this->ExitButton->Size = System::Drawing::Size(80, 27);
@@ -211,7 +211,7 @@ namespace Ell {
 			// Hl
 			// 
 			this->Hl->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->Hl->Location = System::Drawing::Point(25, 296);
+			this->Hl->Location = System::Drawing::Point(22, 256);
 			this->Hl->Margin = System::Windows::Forms::Padding(0);
 			this->Hl->Name = L"Hl";
 			this->Hl->Size = System::Drawing::Size(43, 20);
@@ -222,7 +222,7 @@ namespace Ell {
 			// 
 			// HeightTB
 			// 
-			this->HeightTB->Location = System::Drawing::Point(20, 327);
+			this->HeightTB->Location = System::Drawing::Point(20, 283);
 			this->HeightTB->Margin = System::Windows::Forms::Padding(2);
 			this->HeightTB->Name = L"HeightTB";
 			this->HeightTB->Size = System::Drawing::Size(81, 20);
@@ -237,7 +237,7 @@ namespace Ell {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->AutoSize = true;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->ClientSize = System::Drawing::Size(615, 380);
+			this->ClientSize = System::Drawing::Size(650, 350);
 			this->Controls->Add(this->HeightTB);
 			this->Controls->Add(this->Hl);
 			this->Controls->Add(this->ExitButton);
@@ -245,7 +245,7 @@ namespace Ell {
 			this->Controls->Add(this->Y0);
 			this->Controls->Add(this->X0);
 			this->Controls->Add(this->WidthTB);
-			this->Controls->Add(this->SecondCoordinate);
+			this->Controls->Add(this->SecCoordinate);
 			this->Controls->Add(this->FirstCoordinate);
 			this->Controls->Add(this->ClearButton);
 			this->Controls->Add(this->PaintBox);
@@ -260,47 +260,47 @@ namespace Ell {
 			this->PerformLayout();
 
 		}
-#pragma endregion
+
 	private:
 		System::Void PaintButton_Click(System::Object^ sender, System::EventArgs^ e)
 		{
-			CPaint = 1;
+			cPaintFormFlag = 1;
 			PaintBox->Invalidate();
 		}
 
 		System::Void ClearButton_Click(System::Object^ sender, System::EventArgs^ e)
 		{
-			CPaint = -1;
+			cPaintFormFlag = -1;
 			PaintBox->Invalidate();
 		}
 
 		System::Void PaintBox_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 		{
-			switch (CPaint)
+			switch (cPaintFormFlag)
 			{
 			case 0: return;
 			case 1:
 			{
 				Pen^ bPen = gcnew Pen(Color::Black, 2);
 				e->Graphics->DrawEllipse(bPen, a, b, W, H);
-				CPaint = 0;
+				cPaintFormFlag = 0;
 				break;
 			}
 			case -1:
-				e->Graphics->Clear(Color::Moccasin);
-				CPaint = 0;
+				e->Graphics->Clear(Color::BlanchedAlmond);
+				cPaintFormFlag = 0;
 				break;
 			}
 		}
 
 		System::Void FirstCoordinate_TextChanged(System::Object^ sender, System::EventArgs^ e)
 		{
-			String^ firstcoordinate = Convert::ToString(FirstCoordinate->Text);
-			for (int i = 0; i < firstcoordinate->Length; i++)
+			String^ tText = Convert::ToString(FirstCoordinate->Text);
+			for (int i = 0; i < tText->Length; i++)
 			{
-				if (Char::IsDigit(firstcoordinate[i]) == 0)
+				if (Char::IsDigit(tText[i]) == 0)
 				{
-					MessageBox::Show("Please, enter digits only");
+					MessageBox::Show("Enter digits");
 					this->FirstCoordinate->Text = "";
 				}
 			}
@@ -309,30 +309,30 @@ namespace Ell {
 			else a = int(Convert::ToDouble(FirstCoordinate->Text));
 		}
 
-		System::Void SecondCoordinate_TextChanged(System::Object^ sender, System::EventArgs^ e)
+		System::Void SecCoordinate_TextChanged(System::Object^ sender, System::EventArgs^ e)
 		{
-			String^ secondcoordinate = Convert::ToString(SecondCoordinate->Text);
-			for (int i = 0; i < secondcoordinate->Length; i++)
+			String^ tText = Convert::ToString(SecCoordinate->Text);
+			for (int i = 0; i < tText->Length; i++)
 			{
-				if (Char::IsDigit(secondcoordinate[i]) == 0)
+				if (Char::IsDigit(tText[i]) == 0)
 				{
-					MessageBox::Show("Please, enter digits only");
-					this->SecondCoordinate->Text = "";
+					MessageBox::Show("Enter digits");
+					this->SecCoordinate->Text = "";
 				}
 			}
-			if (System::String::IsNullOrEmpty(SecondCoordinate->Text) == 1)
+			if (System::String::IsNullOrEmpty(SecCoordinate->Text) == 1)
 				b = 0;
-			else b = int(Convert::ToDouble(SecondCoordinate->Text));
+			else b = int(Convert::ToDouble(SecCoordinate->Text));
 		}
 
 		System::Void Width_TextChanged(System::Object^ sender, System::EventArgs^ e)
 		{
-			String^ sRadius = Convert::ToString(WidthTB->Text);
-			for (int i = 0; i < sRadius->Length; i++)
+			String^ tText = Convert::ToString(WidthTB->Text);
+			for (int i = 0; i < tText->Length; i++)
 			{
-				if (Char::IsDigit(sRadius[i]) == 0)
+				if (Char::IsDigit(tText[i]) == 0)
 				{
-					MessageBox::Show("Please, enter digits only");
+					MessageBox::Show("Enter digits");
 					this->WidthTB->Text = "";
 				}
 			}
@@ -342,10 +342,10 @@ namespace Ell {
 		}
 		System::Void Height_TextChanged(System::Object^ sender, System::EventArgs^ e)
 		{
-			String^ sRadius = Convert::ToString(HeightTB->Text);
-			for (int i = 0; i < sRadius->Length; i++)
+			String^ tText = Convert::ToString(HeightTB->Text);
+			for (int i = 0; i < tText->Length; i++)
 			{
-				if (Char::IsDigit(sRadius[i]) == 0)
+				if (Char::IsDigit(tText[i]) == 0)
 				{
 					MessageBox::Show("Please, enter digits only");
 					this->HeightTB->Text = "";
@@ -367,9 +367,9 @@ namespace Ell {
 		{
 			Application::Exit();
 		}
-	private: System::Void Y0_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Void Y0_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 };
 };
