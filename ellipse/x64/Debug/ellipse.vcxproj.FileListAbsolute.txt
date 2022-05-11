@@ -1,0 +1,4 @@
+C:\Users\pavel\source\repos\ellipse\ellipse\x64\Debug\ellipse.vcxproj.AssemblyReference.cache
+C:\Users\pavel\source\repos\ellipse\ellipse\x64\Debug\ellipse.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\pavel\source\repos\ellipse\ellipse\x64\Debug\ellipse.MyForm.resources
+C:\Users\pavel\source\repos\ellipse\ellipse\x64\Debug\ellipse.vcxproj.GenerateResource.cache
