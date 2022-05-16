@@ -282,7 +282,7 @@ namespace Ell {
 			case 1:
 			{
 				Pen^ bPen = gcnew Pen(Color::Black, 2);
-				e->Graphics->DrawEllipse(bPen, a, b, W, H);
+				e->Graphics->DrawEllipse(bPen, a-W/2, b-H/2, W, H);
 				cPaintFormFlag = 0;
 				break;
 			}
